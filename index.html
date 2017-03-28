@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body ng-app="app">
+ <section class="new-customer-form" ng-controller="MovieCtrl as ctrl" style="width:500px;">
+     
+     <h1>Movie List</h1>
+      <div class="container">
+ <div class="row">
+ 
+  <nav class="col-xs-3 navbar" role="navigation">
+      
+      <ul class="nav sidebar-nav nav-pills nav-stacked">
+        <section ng-controller="MovieCtrl as ctrl">
+     
+      
+      <div class="customer-list-item" ng-repeat="movie in ctrl.movies track by movie.$id">
+        
+     
+             <li> <a href ng-click=movie.title>{{movie.title}}</a></li>
+       </div>
+    </section>
+          
+          
+      </ul>
+      
+  </nav>
+
+     <section>
+     <div class="col-xs-6">
+     <div> <input type="checkbox" ng-model="showadd" ><p>Add Movie</p></div>
+     <form ng-submit="ctrl.addMovie(ctrl.newMovie)">
+         
+         <div class="form-group" ng-show="showadd">
+             
+             <label>Title</label>
+             <input type="text" class="form-control" id="first-name" required ng-model="ctrl.newMovie.title">
+            <label>Description</label>
+             <input type="text" class="form-control" id="last-name" required ng-model="ctrl.newMovie.description">
+            <label>Cast</label>
+             <input type="text" class="form-control" id="number" required ng-model="ctrl.newMovie.cast">
+            <label>Director</label>
+             <input type="text" class="form-control" id="email" required ng-model="ctrl.newMovie.director">
+            <label>Release Date</label>
+             <input type="date" class="form-control" id="birthday" ng-model="ctrl.newMovie.ReleaseDate">
+             <button type="submit" class="btn btn-primary">Add Movie</button>
+         </div>
+      </form>
+    
+
+  
+    <div class="customer-list-item" ng-repeat="movie in ctrl.movies track by movie.$id" ng-show="movie.title">
+           <div class="list-item-row">
+     
+        <h2 class="bg-success">Title</h2>    
+        <input type="text" class="form-control" ng-model="movie.title">&nbsp;
+        
+       <h3 >Description</h3>
+        <input type="text" class="form-control" ng-model="movie.description">
+        <h3>Cast</h3>
+        <input type="text" class="form-control" ng-model="movie.cast">
+         <h3>Director</h3>
+        <input type="text" class="form-control" ng-model="movie.director">
+      </div>  
+           <div class="list-item-row">
+           <h3>Release Date</h3>
+        <input type="date" class="form-control col-6" ng-model="movie.ReleaseDate">
+        
+     <button class="btn btn-primary btn-sm" ng-click="ctrl.save(contact)">
+          Save
+        </button>&nbsp;
+        <button class="btn btn-danger btn-sm" ng-click="ctrl.remove(movie)">
+    Delete </button>
+      </div>
+     </div> 
+          
+     </div>
+    </section>
+      </div>
+      
+  <!--Scripts-->     
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+ <script src="js/app.js"></script>   
+</body>
+</html>
