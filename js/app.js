@@ -1,5 +1,5 @@
 angular
-  .module('app', ['ngRoute', 'firebase', 'ngAnimate'])
+  .module('app', ['ngRoute', 'firebase'])
   // You need to fill in your own config properties from the firebase console
   .constant('firebaseConfig', {
    apiKey: "AIzaSyDTDc8aNechfoRGyWNuYUdOdym0XgJ8ZPc",
